@@ -10,7 +10,7 @@ class Ass1
     Transaction="button[ng-click='transactions()']"
     Back="button[ng-click='back()']"
     Withdrawl="button[ng-click='withdrawl()']"
-    //withdrawl()
+    
 
     customerLogin()
      {
@@ -26,30 +26,37 @@ class Ass1
      {
         cy.get(this.nameMessage).should('have.text','Harry Potter');
      }
+
      currency()
      {
         cy.get(this.Currency).last().should('have.text','Dollar')
      }
+
      deposit()
      {
         cy.get(this.Deposit).click();
      }
+
      depositOrWithdrawlAmount(amount)
      {
         cy.get(this.DepositOrWithdrawlAmount).type(amount)
      }
+
      message()
      {
         cy.get(this.Message).should
      }
+
      transaction()
      {
         cy.get(this.Transaction).click();
      }
+
      backBtn()
      {
         cy.get(this.Back).click();
      }
+     
      withdrawl()
      {
         cy.get(this.Withdrawl).click();

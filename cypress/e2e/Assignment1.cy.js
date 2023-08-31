@@ -8,7 +8,7 @@ describe('Automation Assignment', ()=>{
     info = value })
 })
 
-    it('Verify Title', () =>{
+    it('Verify XYZ Bank Customer Bank ', () =>{
 
         cy.visit('https://www.globalsqa.com/angularJs-protractor/BankingProject/') //loading page
         .url().should('include','globalsqa.com') //verify login page
@@ -19,7 +19,9 @@ describe('Automation Assignment', ()=>{
 
         Use.customerLogin();  // 3.Click on Customer Login
 
-        cy.get('#userSelect').select('Harry Potter').should('have.value',2) // 4.Choose any Name from the Your Name drop down
+        cy.wait(2000) // 2 sec wait
+
+        .get('#userSelect').select('Harry Potter').should('have.value',2) // 4.Choose any Name from the Your Name drop down
         
         Use.submit(); // 5.Click on Login
 
@@ -27,9 +29,11 @@ describe('Automation Assignment', ()=>{
 
         Use.currency(); // 7.Confirm the Currency is Dollar (Use Assertion)
         
-        cy.wait(2000) // 2sec wait
+        cy.wait(2000) // 2 sec wait
 
         Use.deposit(); // 8.Click on Deposit
+
+        cy.wait(1000) //1 sec wait
 
         Use.depositOrWithdrawlAmount(info.amount); // 9.Enter the amount in Amount to be Deposited textbox
 
@@ -69,7 +73,7 @@ describe('Automation Assignment', ()=>{
 
         cy.get("td[class='ng-binding']").last().should('contain','Debit') //21. Confirm there is one more row with Transaction Type is debit
 
-        //.eq(3).and('contain','Credit')
+        
 
 
     })
